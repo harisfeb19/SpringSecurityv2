@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -27,6 +28,8 @@ public class EmpController {
 
 	@Autowired
 	EmpDao dao;
+	
+	private MyUserDetailsService service;
 
 	@RequestMapping("/")
 	public String home() {
@@ -121,6 +124,11 @@ public class EmpController {
 	  @ResponseBody public String currentUserName(Principal principal) {
 	  String getuname = principal.getName(); 
 	  return getuname;
+	  }
+	  
+	  @GetMapping("/getUsers")
+	  public List<User> findAllUsers(){
+		  return service.getUsers();
 	  }
 	  
 		/*

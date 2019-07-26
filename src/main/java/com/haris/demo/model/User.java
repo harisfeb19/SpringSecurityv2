@@ -14,6 +14,19 @@ public class User {
 	private long id;
 	private String username;
 	private String password;
+	
+
+	public User() {
+		super();
+	}
+
+	public User(long id, String username, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -29,9 +42,11 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	
 	
 }

@@ -1,5 +1,7 @@
 package com.haris.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,6 +29,11 @@ public class MyUserDetailsService implements UserDetailsService {
 			throw new UsernameNotFoundException("User 404");
 		}
 		return new UserPrincipal(user);
+	}
+	public List<User> getUsers(){
+		List<User> users = repo.findAll();
+		System.out.println("Getting data from db : " + users );
+		return users;
 	}
 
 }
